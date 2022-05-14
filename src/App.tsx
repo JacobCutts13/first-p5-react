@@ -14,12 +14,20 @@ class App extends React.Component {
   }
 
   Sketch = (p: p5): void => {
+    let width = p.windowWidth;
+    let height = p.windowHeight;
     p.setup = () => {
       p.background("white");
     };
 
     p.draw = () => {
       p.square(0, 0, 50);
+    };
+    
+     p.windowResized = () => {
+      p.resizeCanvas(p.windowWidth, p.windowHeight);
+      width = p.windowWidth;
+      height = p.windowHeight;
     };
   };
 
