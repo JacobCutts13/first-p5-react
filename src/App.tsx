@@ -28,6 +28,10 @@ class App extends React.Component {
       this.myRef.current === null ? undefined : this.myRef.current;
     this.myP5 = new p5(this.Sketch, node);
   }
+  
+  componentWillUnmount(): void {
+    this.myP5.remove();
+  }
 
   render(): JSX.Element {
     return <div ref={this.myRef}></div>;
