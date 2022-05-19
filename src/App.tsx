@@ -17,14 +17,15 @@ class App extends React.Component {
     let width = p.windowWidth;
     let height = p.windowHeight;
     p.setup = () => {
+      p.createCanvas(width, height);
       p.background("white");
     };
 
     p.draw = () => {
       p.square(0, 0, 50);
     };
-    
-     p.windowResized = () => {
+
+    p.windowResized = () => {
       p.resizeCanvas(p.windowWidth, p.windowHeight);
       width = p.windowWidth;
       height = p.windowHeight;
@@ -36,7 +37,7 @@ class App extends React.Component {
       this.myRef.current === null ? undefined : this.myRef.current;
     this.myP5 = new p5(this.Sketch, node);
   }
-  
+
   componentWillUnmount(): void {
     this.myP5.remove();
   }
